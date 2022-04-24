@@ -1,6 +1,8 @@
 # pronounceable
 
-[![Build Status](https://travis-ci.org/lukem512/pronounceable.svg?branch=master)](https://travis-ci.org/lukem512/pronounceable) ![Dependency Status](https://david-dm.org/lukem512/pronounceable.svg) [![npm](https://img.shields.io/npm/l/pronounceable.svg)](https://www.npmjs.com/package/pronounceable) [![npm](https://img.shields.io/npm/v/pronounceable.svg)](https://www.npmjs.com/package/pronounceable) [![npm](https://img.shields.io/npm/dm/pronounceable.svg)](https://www.npmjs.com/package/pronounceable)
+[![npm version](https://badge.fury.io/js/@eudes%2Fpronounceable.svg)](https://badge.fury.io/js/@eudes%2Fpronounceable)![GitHub Workflow Status](https://img.shields.io/github/workflow/status/eudes/pronounceable/Node.js%20Package)
+
+Fork of https://github.com/lukem512/pronounceable that removes dependency on `fs` and `path` to allow using in browsers. It also refactors into a bit more modern JS style and tweaks the algorithm slightly.
 
 Pronounceable is a small module that allows you to test a word for pronounceability.
 
