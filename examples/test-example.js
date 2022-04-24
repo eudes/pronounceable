@@ -1,7 +1,8 @@
 // Luke Mitchell, 2016
 // https://github.com/lukem512/pronounceable
 
-var pronounceable = require('../pronounceable');
+const {Pronounceable} = require("../pronounceable");
+let pronounceable = new Pronounceable();
 
 // Testing a word using the standard dataset.
 // The `test` method returns true is a word is pronouncable

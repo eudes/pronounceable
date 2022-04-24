@@ -1,14 +1,14 @@
 {
   "name": "pronounceable",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Test a word for pronounceability",
   "main": "pronounceable.js",
   "scripts": {
-    "test": "node ./test/test.js"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/lukem512/pronounceable.git"
+    "url": "https://github.com/eudes/pronounceable.git"
   },
   "keywords": [
     "pronounce",
@@ -21,7 +21,10 @@
   "author": "Luke Mitchell",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lukem512/pronounceable/issues"
+    "url": "https://github.com/eudes/pronounceable/issues"
   },
-  "homepage": "https://github.com/lukem512/pronounceable"
+  "homepage": "https://github.com/eudes/pronounceable",
+  "devDependencies": {
+    "jest": "^27.5.1"
+  }
 }
