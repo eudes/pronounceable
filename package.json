@@ -1,5 +1,5 @@
 {
-  "name": "pronounceable",
+  "name": "@eudes/pronounceable",
   "version": "2.0.0",
   "description": "Test a word for pronounceability",
   "main": "pronounceable.js",
