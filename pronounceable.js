@@ -183,7 +183,6 @@ class Pronounceable {
       score /= w.length
     }
 
-    console.log(w, score, score / w.length, score / w.length > this.threshold)
     return score;
   }
 }
