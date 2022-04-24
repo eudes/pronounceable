@@ -5,6 +5,10 @@ const defaultTuples = require("./data/tuples.json");
 const defaultTriples = require("./data/triples.json");
 const defaultThreshold = 0.001;
 
+function hasVowels(word){
+  return word.search(/[aeiouy]/) >= 0
+}
+
 /**
  * Remove any non-alphabet characters
  * and convert to lower case.
@@ -133,26 +137,7 @@ class Pronounceable {
    * @returns {boolean}
    */
   test(word) {
-    const w = clean(word);
-
-    switch (w.length) {
-      case 1:
-        break;
-
-      case 2:
-        for (let i = 0; i < w.length - 1; i++) {
-          if (undef(w, i, 2, this.tuples)) return false;
-          if (this.tuples[w[i]][w[i + 1]] < this.threshold) return false;
-        }
-
-      default:
-        for (let i = 0; i < w.length - 2; i++) {
-          if (undef(w, i, 3, this.triples)) return false;
-          if (this.triples[w[i]][w[i + 1]][w[i + 2]] < this.threshold) return false;
-        }
-    }
-
-    return true;
+    return this.score(word) > this.threshold;
   }
 
   /**
@@ -165,30 +150,41 @@ class Pronounceable {
     const w = clean(word);
     let score = 0;
 
+    // this breaks universality, but whatever
+    if(!hasVowels(w)){
+      return 0
+    }
+
     switch (w.length) {
       case 1:
         return 1;
 
       case 2:
         for (let i = 0; i < w.length - 1; i++) {
-          if (undef(w, i, 2, this.tuples)) {
-            score = score + 0;
+          if (!undef(w, i, 2, this.tuples)) {
+            score += this.tuples[w[i]][w[i + 1]];
           } else {
-            score = score + this.tuples[w[i]][w[i + 1]];
+            score -= 1
           }
         }
+        break;
 
       default:
         for (let i = 0; i < w.length - 2; i++) {
-          if (undef(w, i, 3, this.this.triples)) {
-            score = score + 0;
+          if (!undef(w, i, 3, this.triples)) {
+            score += this.triples[w[i]][w[i + 1]][w[i + 2]];
           } else {
-            score = score + this.this.triples[w[i]][w[i + 1]][w[i + 2]];
+            score -= 1
           }
         }
     }
 
-    return score / w.length;
+    if(w.length > 3) {
+      score /= w.length
+    }
+
+    console.log(w, score, score / w.length, score / w.length > this.threshold)
+    return score;
   }
 }
 

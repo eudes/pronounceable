@@ -29,7 +29,7 @@ describe('test()', () => {
         ['ha', true],
         ['sa', true],
         ['xz', false],
-        //['kt', false],
+        ['kt', false],
     ]
     const pronounceable = new Pronounceable();
     test.each(testCases)('%p is pronounceable? %p', (word, expected) => {
